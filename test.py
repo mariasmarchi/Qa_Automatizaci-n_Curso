@@ -40,10 +40,9 @@ def restar(a, b):
 def multiplicar(a, b):
     return a * b
 def dividir(a, b):
-    if b != 0:
-        return a / b
-    else:
-        raise ValueError("error: No se puede dividir por cero")
+    if b == 0:
+        raise ZeroDivisionError("No se puede dividir por cero")
+    return a / b
 
 def calculadora_Simple(a, b, operacion):
 
@@ -56,17 +55,21 @@ def calculadora_Simple(a, b, operacion):
     elif operacion == '/':
         return dividir(a, b)
     else:
-         raise ValueError("La operación no es válida")
+         raise KeyError('La operación no es válida')
     
 
 print("---Calculadora Simple---")
-a = float(input("Ingresa el primer número: "))
-b = float(input("Ingresa el segundo número: "))
-operacion = input("Ingresa la operación (+, -, *, /): ")
-
 try:
+    a = float(input("Ingresa el primer número: "))
+    b = float(input("Ingresa el segundo número: "))
+    operacion = input("Ingresa la operación (+, -, *, /): ")
+
+
     resultado = calculadora_Simple(a, b, operacion)
     print(f"El resultado es: {resultado}")
-except ValueError as e:
-    print(e)
-
+except ValueError:
+    print("Error: Entrada inválida, por favor ingresa números válidos")
+except ZeroDivisionError as e:
+    print(f"Error: {e}")
+except KeyError as e:
+    print(f"Error: {e}")
