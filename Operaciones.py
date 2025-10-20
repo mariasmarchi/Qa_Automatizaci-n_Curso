@@ -33,43 +33,39 @@
 # CLASE 3 - Ejercicio 1
 
 
-def sumar(a, b):
+def sumar( a, b):
     return a + b
-def restar(a, b):
+
+def restar( a, b):
     return a - b
-def multiplicar(a, b):
+
+def multiplicar( a, b):
     return a * b
-def dividir(a, b):
+
+def dividir( a, b):
     if b == 0:
         raise ZeroDivisionError("No se puede dividir por cero")
     return a / b
 
-def calculadora_Simple(a, b, operacion):
-
-    if operacion == '+':
-       return sumar(a, b)
-    elif operacion == '-':
-        return restar(a, b)
-    elif operacion == '*':
-        return multiplicar(a, b)
-    elif operacion == '/':
-        return dividir(a, b)
-    else:
-         raise KeyError('La operación no es válida')
-    
-
-print("---Calculadora Simple---")
-try:
-    a = float(input("Ingresa el primer número: "))
-    b = float(input("Ingresa el segundo número: "))
-    operacion = input("Ingresa la operación (+, -, *, /): ")
-
-
-    resultado = calculadora_Simple(a, b, operacion)
-    print(f"El resultado es: {resultado}")
-except ValueError:
-    print("Error: Entrada inválida, por favor ingresa números válidos")
-except ZeroDivisionError as e:
-    print(f"Error: {e}")
-except KeyError as e:
-    print(f"Error: {e}")
+def calculadora_Simple( operacion , a, b,):
+    try:
+        a = int(a)
+        b = int(b)
+        #a = float(input("Ingresa el primer número: "))
+        #b = float(input("Ingresa el segundo número: "))
+        #operacion = input("Ingresa la operación (+, -, *, /): ")
+        if operacion == 'sumar' or operacion == '+':
+            return sumar(a, b)
+        elif operacion == 'restar' or operacion == '-':
+            return restar(a, b)
+        elif operacion == 'multiplicar' or operacion == '*':
+            return multiplicar(a, b)
+        elif operacion == 'dividir' or operacion == '/':
+            return dividir(a, b)
+        else:
+            raise KeyError('La operación no es válida')
+       
+    except ValueError:
+        print("Error: Entrada inválida, por favor ingresa números válidos")
+    except ZeroDivisionError as e:
+        print(f"Error: {e}")
