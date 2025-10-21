@@ -12,12 +12,13 @@ def test_division_por_cero():
     (2,5,7), #numeros positivos
     (-4, -6, -10), #numeros negativos
     (0,0,0), #ceros
-    (-2, 3, 1) #negativo y positivo
+    (-2, 3, 1), #negativo y positivo
+    (2.5,3.5,6.0) #numeros decimales
 ])
 def test_sumar_varios(a,b,esperado):
     assert operaciones.sumar(a,b) == esperado
 
-
+"""test_restar_con_fixture"""
 def test_restar_con_fixture(numeros):
     a,b = numeros
     assert operaciones.restar(a, b) == 0
