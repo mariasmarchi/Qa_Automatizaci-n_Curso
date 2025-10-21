@@ -44,7 +44,7 @@ def multiplicar( a, b):
 
 def dividir( a, b):
     if b == 0:
-        raise ZeroDivisionError("No se puede dividir por cero")
+        raise ValueError("No se puede dividir por cero")
     return a / b
 
 def calculadora_Simple( operacion , a, b,):
